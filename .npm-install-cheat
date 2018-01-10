@@ -1,0 +1,35 @@
+TOUCH
+.gitignore
+.jshint.js
+
+git init
+npm init
+bower init
+
+PASTE GITIGNORE BEFORE ALL YOUR INSTALLS:
+.gitignore
+
+INSTALLS:
+npm i gulp browserify vinyl-source-stream gulp-concat gulp-uglify gulp-util del bower-files browser-sync jshint gulp-jshint gulp-sass gulp-sourcemaps jasmine watchify karma karma-jasmine jasmine-core karma-chrome-launcher karma-cli karma-browserify karma-jquery karma-jasmine-html-reporter babelify babel-preset-es2015 babel-core --save-dev
+
+./node_modules/.bin/jasmine init
+
+bower install jquery bootstrap --save
+
+karma init
+
+PASTE:
+gulpfile.js
+karma.config.js
+jshint.js
+package.json - "test": "karma start karma.conf.js"
+html: index head, create div with jumbotron
+scss.main: create body with background: blue
+
+check to see if js scripts-interface and main.scss spelled right
+
+gulp bower
+gulp gulp build
+gulp serve
+
+npm test
