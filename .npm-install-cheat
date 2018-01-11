@@ -29,7 +29,13 @@ scss.main: create body with background: blue
 check to see if js scripts-interface and main.scss spelled right
 
 gulp bower
-gulp gulp build
+gulp build
 gulp serve
 
 npm test
+
+FROM CLONE:
+npm install
+bower install
+gulp bower
+gulp serve

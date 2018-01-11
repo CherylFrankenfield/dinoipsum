@@ -8,9 +8,13 @@ $(function(){
     let dino = new Dino(paragraphNum, wordNum);
 
     dino.dinoApi(function(response){
-      console.log(response[0]);
+
       for (var i = 0; i < response.length; i++) {
-        $('#some-awesome-container').append(`<p>${response[i]}</p></br>`);
+        var paragraphs = response[i].join(',</br>');
+        if (response[i].includes("saurus")); {
+          alert("saurus");
+        }
+        $('#some-awesome-container').append(`<li>${paragraphs}</li></br>`);
       }
     }, function(){
       console.log("Something went wrong")
