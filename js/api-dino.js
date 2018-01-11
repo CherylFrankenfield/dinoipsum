@@ -1,21 +1,17 @@
 export class Dino {
-  constructor(paragraph, word) {
-    this.paragraph = word;
-    this.word = word;
+  constructor(paragraphNum, wordNum) {
+    this.paragraph = paragraphNum;
+    this.word = wordNum;
   }
 
-  dinoApi(getDinos, function(fillContainer)) {
 
-    var getDinos = $.get(`http://dinoipsum.herokuapp.com/api/?format=json&paragraphs=${this.paragraph}&words=${this.word}`);
-
-    fillContainer = function(html) {
-      $('#some-awesome-container').html(html);
-    },
-    oops = function() {
-      return ('Where did all the dinosaurs go?');
-    };
-
-    getDinos.then(fillContainer, oops);
-
+  dinoApi(success, error) {
+    let getDinos = $.get(`http://dinoipsum.herokuapp.com/api/?format=json&paragraphs=${this.paragraph}&words=${this.word}`).then(function(res) {
+      if (res) {
+        success(res);
+      } else {
+        error('Where did all the dinosaurs go?');
+      }
+    });
   }
 }

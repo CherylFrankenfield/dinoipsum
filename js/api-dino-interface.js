@@ -1,12 +1,19 @@
-import { Dino } from "./../js/dino.js";
+import { Dino } from "./../js/api-dino.js";
 
 $(function(){
-  $('#dino-form').click(function(){
+  $('#dino-form').submit(function(event){
+    event.preventDefault();
     const paragraphNum = $('#paragraph').val();
     const wordNum = $('#word').val();
     let dino = new Dino(paragraphNum, wordNum);
 
-    let fillContainer = dino.dinoApi();
-    $('#result-div').text(fillContainer);
+    dino.dinoApi(function(response){
+      console.log(response[0]);
+      for (var i = 0; i < response.length; i++) {
+        $('#some-awesome-container').append(`<p>${response[i]}</p></br>`);
+      }
+    }, function(){
+      console.log("Something went wrong")
+    });
   });
 });
