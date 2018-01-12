@@ -6,7 +6,7 @@ export class Dino {
 
 
   dinoApi(success, error) {
-    let getDinos = $.get(`http://dinoipsum.herokuapp.com/api/?format=json&paragraphs=${this.paragraph}&words=${this.word}`).then(function(res) {
+    let dinoUrl = $.get(`http://dinoipsum.herokuapp.com/api/?format=json&paragraphs=${this.paragraph}&words=${this.word}`).then(function(res) {
       if (res) {
         success(res);
       } else {
